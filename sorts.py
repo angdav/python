@@ -3,6 +3,15 @@ def swap(arr, a, b):
     arr[a] = arr[b]
     arr[b] = temp
 
+def bubble_sort(arr):
+
+    for i in range(len(arr)):
+        for j in range(len(arr)-1):
+            if arr[j] > arr[j+1]:
+                swap(arr, j, j+1)
+
+    return arr
+
 def insertion_sort(arr):
 
     for i in range(1, len(arr)):
@@ -33,3 +42,6 @@ print(insertion_sort(arr))
 
 arr = [3, 2, 1, 5, 2, 3, 6, 3, 8, 5, 4, 6]
 print(selection_sort(arr))
+
+arr = [3, 2, 1, 5, 2, 3, 6, 3, 8, 5, 4, 6]
+print(bubble_sort(arr))
