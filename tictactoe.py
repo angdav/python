@@ -29,8 +29,7 @@ def printboard():
     for lst in board:
         for val in lst:
             print(str(val)+" ", end="")
-        print()
-    
+        print()   
 
 while not over():
 
@@ -92,7 +91,6 @@ while not over():
         print("that spot is already occupied, try again")
         orow = -1
         ocol = -1
-
        
     board[orow-1][ocol-1] = 'O'
 
