@@ -12,6 +12,7 @@ pushCount = 0
 pullCount = 0
 squatCount = 0
 jackCount = 0
+abCount = 0
 
 while True:
     i = input("Enter an exercise and rep range: ").split()
@@ -28,6 +29,8 @@ while True:
         squatCount += reps
     elif "jack" in exercise:
         jackCount += reps
+    elif "ab" in exercise:
+        abCount += reps
     else:
         print("invalid exercise")
         continue
@@ -38,7 +41,7 @@ end = datetime.datetime.now()
 duration = str(end - start)
 duration = duration[:duration.rfind('.')]
 
-totalreps = pushCount+pullCount+squatCount+jackCount
+totalreps = pushCount+pullCount+squatCount+jackCount+abCount
 rpm = totalreps/((end-start).total_seconds()/60) # reps per minute
 rps = (end-start).total_seconds()/(len(lines)-4) # rest per set
 
@@ -51,6 +54,7 @@ lines.append(str(pushCount) + "\tpushups\n")
 lines.append(str(pullCount) + "\tpullups\n")
 lines.append(str(squatCount) + "\tsquats\n")
 lines.append(str(jackCount) + "\tjumping jacks\n")
+lines.append(str(abCount) + "\tab exercises\n")
 
 lines.append("\nStats:\n")
 lines.append(str(pushCount+pullCount+squatCount+jackCount) + "\ttotal reps\n")
