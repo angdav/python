@@ -36,6 +36,22 @@ def selection_sort(arr):
     
     return arr
 
+def quick_sort(arr, left, right):
+    if right - left > 0:
+        mid = partition(arr, left, right)
+        quick_sort(arr, left, mid-1)
+        quick_sort(arr, mid+1, right)
+        return arr
+
+def partition(arr, left, right):
+    pivot = arr[right]
+    j = left-1
+    for i in range(left, right):
+        if arr[i] < pivot:
+            j += 1
+            arr[j], arr[i] = arr[i], arr[j]
+    arr[j+1], arr[right] = arr[right], arr[j+1]
+    return j+1
 
 arr = [3, 2, 1, 5, 2, 3, 6, 3, 8, 5, 4, 6]
 print(insertion_sort(arr))
@@ -45,3 +61,6 @@ print(selection_sort(arr))
 
 arr = [3, 2, 1, 5, 2, 3, 6, 3, 8, 5, 4, 6]
 print(bubble_sort(arr))
+
+arr = [3, 2, 1, 5, 2, 3, 6, 3, 8, 5, 4, 6]
+print(quick_sort(arr, 0, len(arr)-1))
